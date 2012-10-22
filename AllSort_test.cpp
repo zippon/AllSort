@@ -42,14 +42,36 @@ protected:
   AllSort* sort;
 };
 
+TEST_F(AllSortTest, QuickSortTest) {
+  sort->QuickSort();
+  AllSortTester();
+}
+TEST_F(AllSortTest, MergeSortTest) {
+  sort->MergeSort();
+  AllSortTester();
+}
+TEST_F(AllSortTest, SelectionSortTest) {
+  sort->SelectionSort();
+  AllSortTester();
+}
+TEST_F(AllSortTest, ShellSortTest) {
+  // LOG(INFO) << "\nShellSortTest\n";
+  sort->ShellSort();
+  AllSortTester();
+}
+TEST_F(AllSortTest, InsertionSoetTest) {
+	// LOG(INFO) << "\nInsertionTest\n";
+	sort->InsertionSort();
+	AllSortTester();
+}
 TEST_F(AllSortTest, BubbleSortTest) {
-  LOG(INFO) << "\nBubbleSortTest\n";
+  // LOG(INFO) << "\nBubbleSortTest\n";
   sort->BubbleSort();
   AllSortTester();
 }
 
 TEST_F(AllSortTest, HeapSortTest) {
-  LOG(INFO) << "\nHeapSortTest\n";
+  // LOG(INFO) << "\nHeapSortTest\n";
   // sort->Print();
   sort->HeapSort();
   AllSortTester();

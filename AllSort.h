@@ -35,6 +35,12 @@ public:
     LOG(INFO) << "\n";
   }
 
+  // Different sorting methods.
+  void QuickSort();
+  void MergeSort();
+  void SelectionSort();
+  void ShellSort();
+  void InsertionSort();
   void BubbleSort();
   void HeapSort();
 
@@ -47,6 +53,9 @@ public:
 private:
   void Swap(int i, int j);
   void Sift(int i, int length);
+  void MergeArray(int first, int mid, int last, int temp[]);
+  void MergeIter(int first, int last, int temp[]);
+  void QuickIter(int first, int last);
   int *array_;
   int array_size_;
 
