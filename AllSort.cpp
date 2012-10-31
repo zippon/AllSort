@@ -144,27 +144,22 @@ void AllSort::MergeIter(int first, int last, int temp[]) {
 // Sort the elements from first to last.
 void AllSort::QuickIter(int first, int last) {
   if (first < last) {
-    int pivol = first;
-    int i = first;
+    int x = array_[first];
+    int i = first + 1;
     int j = last;
     while (i < j) {
-      while ((array_[j] <= array_[pivol]) && (i < j))
-        --j;
-      if (pivol < j) {
-        Swap(pivol, j);
-        pivol = j;
+      while ((array_[i] > x) && (i <= last))
         ++i;
-      }
-      while ((array_[i] >= array_[pivol]) && (i < j))
-        ++i;
-      if (i < pivol) {
-        Swap(i, pivol);
-        pivol = i;
+      while ((array_[j] < x) && (first <= j))
         --j;
+      if (i < j) {
+        Swap(i, j);
       }
     }
-    QuickIter(first, pivol);
-    QuickIter(pivol + 1, last);
+    if (first < j)
+      Swap(first, j);
+    QuickIter(first, j - 1);
+    QuickIter(j + 1, last);
   }
 }
 
