@@ -145,13 +145,15 @@ void AllSort::MergeIter(int first, int last, int temp[]) {
 void AllSort::QuickIter(int first, int last) {
   if (first < last) {
     int x = array_[first];
-    int i = first + 1;
-    int j = last;
+    int i = first;
+    int j = last + 1;
     while (i < j) {
-      while ((array_[i] > x) && (i <= last))
+      do {
         ++i;
-      while ((array_[j] < x) && (first <= j))
+      } while ((array_[i] > x) && (i <= last));
+      do {
         --j;
+      } while ((array_[j] < x) && (first <= j));
       if (i < j) {
         Swap(i, j);
       }
